@@ -74,7 +74,8 @@ p{margin:0}
 .bar .wrap{display:flex; align-items:center; gap:16px; height:60px}
 .logo{font-family:var(--f-mono); font-weight:500; font-size:.95rem; color:var(--ink); text-decoration:none; flex:none}
 .logo span{color:var(--accent)}
-.nav{display:flex; gap:4px; overflow-x:auto; scrollbar-width:none; min-width:0; flex:1; justify-content:flex-end}
+.nav{display:flex; gap:4px; overflow-x:auto; scrollbar-width:none; min-width:0; flex:1}
+.nav a:first-child{margin-left:auto}
 .nav::-webkit-scrollbar{display:none}
 .nav a{color:var(--muted); text-decoration:none; font-size:.9rem; font-weight:500; padding:6px 10px; border-radius:8px; white-space:nowrap; transition:color .2s, background-color .2s}
 .nav a:hover,.nav a.active{color:var(--ink); background:var(--accent-soft)}
@@ -90,6 +91,13 @@ p{margin:0}
   :root:not([data-theme="light"]) .theme-btn .moon{display:none}
 }
 @media (max-width:640px){ .nav a.opt{display:none} }
+@media (max-width:520px){
+  .bar .wrap{gap:8px}
+  .logo{font-size:.85rem}
+  .logo span{display:none}
+  .nav{gap:2px}
+  .nav a{font-size:.85rem; padding:6px 8px}
+}
 
 /* ---------- hero ---------- */
 .hero{padding-block:72px 56px}
@@ -178,6 +186,12 @@ details.more ul{margin-top:10px}
 .card .link{font-size:.9rem; padding-top:12px; border-top:1px dashed var(--line)}
 .card .link a{font-weight:600; text-decoration:none}
 .card .link a:hover{text-decoration:underline}
+.thumb{position:relative; display:block; aspect-ratio:16/10; max-width:100%; border-radius:10px; overflow:hidden; border:1px solid var(--line); background:linear-gradient(135deg, var(--accent-soft), var(--surface)); text-decoration:none}
+.thumb img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; z-index:1; transition:transform .5s ease}
+.card:hover .thumb img{transform:scale(1.04)}
+.thumb-fallback{position:absolute; inset:0; display:grid; place-items:center; align-content:center; gap:8px; padding:12px; font-family:var(--f-mono); font-size:.8rem; color:var(--muted); text-align:center}
+.thumb-fallback svg{width:22px; height:22px; color:var(--accent)}
+.thumb-domain{position:absolute; left:10px; bottom:10px; z-index:2; font-family:var(--f-mono); font-size:.72rem; padding:4px 8px; border-radius:6px; background:var(--bg); color:var(--ink); border:1px solid var(--line)}
 
 /* education */
 .edu{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:20px}
@@ -265,7 +279,6 @@ footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12
         <div class="cta anim">
           <a class="btn btn-primary" href="#projects">View projects</a>
           <a class="btn btn-ghost" href="#contact">Get in touch</a>
-          <a class="btn btn-ghost" href="https://github.com/sudheer179" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
       <div class="code anim" aria-label="Profile summary written as a React component">
@@ -441,6 +454,7 @@ footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12
       <div class="sec-head reveal"><span class="tag">04</span><h2>Projects</h2></div>
       <div class="projects">
         <article class="card reveal">
+          <a class="thumb" href="https://www.stjude.org/donate/donate-to-st-jude.html" target="_blank" rel="noopener" aria-label="Open stjude.org"><img src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.stjude.org%2Fdonate%2Fdonate-to-st-jude.html?w=800&amp;h=500" alt="Screenshot of the St. Jude donation page" loading="lazy" onerror="this.remove()"><span class="thumb-fallback">stjude.org</span><span class="thumb-domain">stjude.org ↗</span></a>
           <span class="org">St. Jude Children's Research Hospital</span>
           <h3>Donation Platform</h3>
           <p>Front-end architecture for the giving pages: a shared React component library, Next.js SSR inside AEM, and a give form covering card, ACH, digital wallets, and recurring gifts.</p>
@@ -448,6 +462,7 @@ footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12
           <p class="link"><a href="https://www.stjude.org/donate/donate-to-st-jude.html" target="_blank" rel="noopener">View live site ↗</a></p>
         </article>
         <article class="card reveal">
+          <a class="thumb" href="https://shakeshack.com/" target="_blank" rel="noopener" aria-label="Open shakeshack.com"><span class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Live customer site</span><span class="thumb-domain">shakeshack.com ↗</span></a>
           <span class="org">Shake Shack</span>
           <h3>Ordering Screens Migration</h3>
           <p>Piece-by-piece replacement of legacy ExtJS ordering screens with React modules, moved onto GraphQL so one typed query replaced calls to three services per screen.</p>
@@ -455,24 +470,28 @@ footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12
           <p class="link"><a href="https://shakeshack.com/" target="_blank" rel="noopener">View live site ↗</a></p>
         </article>
         <article class="card reveal">
+          <div class="thumb"><span class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Internal application · not public</span></div>
           <span class="org">Shake Shack</span>
           <h3>In-Store Ordering App</h3>
           <p>Order-receiving app pushing live order-queue updates to kitchen and counter terminals, with lazy-loaded feature modules and reactive forms.</p>
           <ul class="stack"><li>Angular 16</li><li>NgRx</li><li>RxJS</li></ul>
         </article>
         <article class="card reveal">
+          <div class="thumb"><span class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Internal application · not public</span></div>
           <span class="org">LabCorp</span>
           <h3>Patient Records Platform</h3>
           <p>Presentation layer for lab staff and clinicians, with order entry and patient search, plus an Express layer that collapsed four or five calls per screen into one.</p>
           <ul class="stack"><li>Angular 12</li><li>NgRx</li><li>Node.js</li><li>Express</li></ul>
         </article>
         <article class="card reveal">
+          <div class="thumb"><span class="thumb-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Internal application · not public</span></div>
           <span class="org">Baxter International Healthcare</span>
           <h3>Medical Device Hierarchy</h3>
           <p>Tree UI for the system of record of medical devices, scrolling smoothly through thousands of nodes, with drag-to-reparent and Vue micro-frontends in an Angular shell.</p>
           <ul class="stack"><li>Angular 8</li><li>Angular CDK</li><li>Vue.js</li><li>Vuex</li></ul>
         </article>
         <article class="card reveal">
+          <a class="thumb" href="https://intermountainhealthcare.org/" target="_blank" rel="noopener" aria-label="Open intermountainhealthcare.org"><img src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fintermountainhealthcare.org%2F?w=800&amp;h=500" alt="Screenshot of the Intermountain Health website" loading="lazy" onerror="this.remove()"><span class="thumb-fallback">intermountainhealthcare.org</span><span class="thumb-domain">intermountainhealthcare.org ↗</span></a>
           <span class="org">Intermountain Health Care</span>
           <h3>Cross-Platform Mobile App</h3>
           <p>React Native app for iOS and Android with maps, push notifications, and live WebSocket data, shipped to both app stores from one codebase.</p>
