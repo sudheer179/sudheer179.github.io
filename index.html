@@ -176,6 +176,8 @@ details.more ul{margin-top:10px}
 .card .stack{display:flex; flex-wrap:wrap; gap:6px; list-style:none; margin:0; padding:0}
 .card .stack li{font-family:var(--f-mono); font-size:.74rem; padding:3px 8px; border-radius:6px; background:var(--accent-soft); color:var(--accent)}
 .card .link{font-size:.9rem; padding-top:12px; border-top:1px dashed var(--line)}
+.card .link a{font-weight:600; text-decoration:none}
+.card .link a:hover{text-decoration:underline}
 
 /* education */
 .edu{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:20px}
@@ -227,6 +229,7 @@ footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12
   .job{padding-left:32px}
 }
 </style>
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}</script>
 
 
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -442,42 +445,39 @@ footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12
           <h3>Donation Platform</h3>
           <p>Front-end architecture for the giving pages: a shared React component library, Next.js SSR inside AEM, and a give form covering card, ACH, digital wallets, and recurring gifts.</p>
           <ul class="stack"><li>React</li><li>Next.js</li><li>TypeScript</li><li>Redux</li><li>AEM</li></ul>
-          <p class="link"><span class="ph">[Add your project link]</span></p>
+          <p class="link"><a href="https://www.stjude.org/donate/donate-to-st-jude.html" target="_blank" rel="noopener">View live site ↗</a></p>
         </article>
         <article class="card reveal">
           <span class="org">Shake Shack</span>
           <h3>Ordering Screens Migration</h3>
           <p>Piece-by-piece replacement of legacy ExtJS ordering screens with React modules, moved onto GraphQL so one typed query replaced calls to three services per screen.</p>
           <ul class="stack"><li>React</li><li>GraphQL</li><li>Apollo</li><li>Cypress</li></ul>
-          <p class="link"><span class="ph">[Add your project link]</span></p>
+          <p class="link"><a href="https://shakeshack.com/" target="_blank" rel="noopener">View live site ↗</a></p>
         </article>
         <article class="card reveal">
           <span class="org">Shake Shack</span>
           <h3>In-Store Ordering App</h3>
           <p>Order-receiving app pushing live order-queue updates to kitchen and counter terminals, with lazy-loaded feature modules and reactive forms.</p>
           <ul class="stack"><li>Angular 16</li><li>NgRx</li><li>RxJS</li></ul>
-          <p class="link"><span class="ph">[Add your project link]</span></p>
         </article>
         <article class="card reveal">
           <span class="org">LabCorp</span>
           <h3>Patient Records Platform</h3>
           <p>Presentation layer for lab staff and clinicians, with order entry and patient search, plus an Express layer that collapsed four or five calls per screen into one.</p>
           <ul class="stack"><li>Angular 12</li><li>NgRx</li><li>Node.js</li><li>Express</li></ul>
-          <p class="link"><span class="ph">[Add your project link]</span></p>
         </article>
         <article class="card reveal">
           <span class="org">Baxter International Healthcare</span>
           <h3>Medical Device Hierarchy</h3>
           <p>Tree UI for the system of record of medical devices, scrolling smoothly through thousands of nodes, with drag-to-reparent and Vue micro-frontends in an Angular shell.</p>
           <ul class="stack"><li>Angular 8</li><li>Angular CDK</li><li>Vue.js</li><li>Vuex</li></ul>
-          <p class="link"><span class="ph">[Add your project link]</span></p>
         </article>
         <article class="card reveal">
           <span class="org">Intermountain Health Care</span>
           <h3>Cross-Platform Mobile App</h3>
           <p>React Native app for iOS and Android with maps, push notifications, and live WebSocket data, shipped to both app stores from one codebase.</p>
           <ul class="stack"><li>React Native</li><li>Socket.io</li><li>AWS Lambda</li></ul>
-          <p class="link"><span class="ph">[Add your project link]</span></p>
+          <p class="link"><a href="https://intermountainhealthcare.org/" target="_blank" rel="noopener">View live site ↗</a></p>
         </article>
       </div>
     </div>
@@ -492,13 +492,13 @@ footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12
           <span class="deg">M.S.</span>
           <h3>Computer Science</h3>
           <p>Texas A&amp;M University–Commerce</p>
-          <p><span class="ph">[Add graduation year]</span></p>
+          <p>Graduated 2018</p>
         </div>
         <div class="edu-item reveal">
           <span class="deg">B.S.</span>
           <h3>Computer Science &amp; Engineering</h3>
           <p>Jawaharlal Nehru Technological University, Hyderabad</p>
-          <p><span class="ph">[Add graduation year]</span></p>
+          <p>Graduated 2016</p>
         </div>
       </div>
     </div>
@@ -520,10 +520,6 @@ footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12
             <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.77 2.5 4.77 5.75V21h-4v-5.1c0-1.22-.02-2.78-1.8-2.78-1.8 0-2.08 1.33-2.08 2.7V21h-4z"/></svg></span>
             <div class="txt"><div class="lbl">LinkedIn</div><div class="val"><a href="https://linkedin.com/in/sudeer-p-200569186" target="_blank" rel="noopener">linkedin.com/in/sudeer-p-200569186</a></div></div>
           </div>
-          <div class="link-row">
-            <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg></span>
-            <div class="txt"><div class="lbl">GitHub</div><div class="val"><a href="https://github.com/sudheer179" target="_blank" rel="noopener">github.com/sudheer179</a></div></div>
-          </div>
         </div>
       </div>
     </div>
@@ -540,7 +536,7 @@ footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12
 <script>
 (function(){
   var root = document.documentElement;
-  try { var saved = localStorage.getItem('theme'); if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved); } catch(e){}
+  try { var saved = localStorage.getItem('theme'); root.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark'); } catch(e){ root.setAttribute('data-theme', 'dark'); }
 
   function isDark(){
     var t = root.getAttribute('data-theme');
